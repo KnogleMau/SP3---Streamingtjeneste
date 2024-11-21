@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+Class Chill
+Class StartMenu
+Class LogIn
+Class User
+Class MainMenu
+Abstract SearchFunction
+Abstract WatchedMedia
+Abstract SavedMedia
+Class SearchMovies
+Class SearchSeries
+Abstract SearchCategory
+Class SearchMovieCategory
+Class SearchSeriesCategory
+Class WatchedMovies
+Class WatchedSeries
+Class SavedMovies
+Class SavedSeries
+
+Chill <-- StartMenu
+StartMenu <-- LogIn
+LogIn <-- User
+User <-- MainMenu
+
+MainMenu <-- SearchFunction
+MainMenu <-- WatchedMedia
+MainMenu <-- SavedMedia
+
+SearchFunction <-- SearchMovies
+SearchCategory <-- SearchMovieCategory
+SearchFunction <-- SearchCategory
+
+
+WatchedMedia <-- WatchedMovies
+SavedMedia <-- SavedMovies
+SearchFunction <-- SearchSeries
+SearchCategory <-- SearchSeriesCategory
+WatchedMedia <-- WatchedSeries
+SavedMedia <-- SavedSeries
+
+@enduml
