@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dbd3212d-0520-47f2-b643-760b4dff911e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
