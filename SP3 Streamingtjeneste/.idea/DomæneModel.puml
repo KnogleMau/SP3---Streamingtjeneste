@@ -1,7 +1,7 @@
 @startuml
 'https://plantuml.com/object-diagram
 
-object Chill
+object StreamingServiceChill
 
 object PreLogIn
 object StartMenu
@@ -30,11 +30,11 @@ FAQSenere : StartMenu
 
 
 
-Chill *--PreLogIn
+StreamingServiceChill *--PreLogIn
 PreLogIn *-- StartMenu
 StartMenu *-- Login
 StartMenu *-- CreateAccount
-Chill *--PostLogIn
+StreamingServiceChill *--PostLogIn
 PostLogIn *-- MainMenu
 
 MainMenu *-- UdvalgteFilm
