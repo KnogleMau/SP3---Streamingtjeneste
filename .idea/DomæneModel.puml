@@ -1,0 +1,54 @@
+@startuml
+'https://plantuml.com/object-diagram
+
+object Chill
+
+object PreLogIn
+object StartMenu
+object Login
+object CreateAccount
+
+object PostLogIn
+object MainMenu
+object UdvalgteFilm
+UdvalgteFilm : 5
+object UdvalgteSerier
+UdvalgteSerier : 5
+object SearchFuntion
+object DropdownMenu
+object FilmLink
+object SerierLink
+object Categories
+object GenreSortedFilms
+object GenreSortedSeries
+
+object Afspiller
+
+
+object FAQSenere
+FAQSenere : StartMenu
+
+
+
+Chill *--PreLogIn
+PreLogIn *-- StartMenu
+StartMenu *-- Login
+StartMenu *-- CreateAccount
+Chill *--PostLogIn
+PostLogIn *-- MainMenu
+
+MainMenu *-- UdvalgteFilm
+MainMenu *-- UdvalgteSerier
+MainMenu *-- SearchFuntion
+MainMenu *-- DropdownMenu
+
+DropdownMenu *-- FilmLink
+DropdownMenu *-- SerierLink
+
+FilmLink *-- Categories
+SerierLink *-- Categories
+Categories *-- GenreSortedFilms
+Categories *-- GenreSortedSeries
+
+
+@enduml
