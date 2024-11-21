@@ -3,52 +3,52 @@
 
 object Chill
 
-object PreLogIn
+
+
+
+
+object Bruger
 object StartMenu
-object Login
-object CreateAccount
+object HovedMenu
+object SøgeFilm
+object SøgFilmKategori
+object SeteFilm
+object GemteFilm
+Object SøgeSerie
+Object SøgSerieKategori
+Object SeteSerie
+Object GemteSerier
+Object SøgFunction
+Object SøgKategori
+Object SeteMedier
+Object GemteMedier
+Object LogIn
+LogIn : CreateAccount
 
-object PostLogIn
-object MainMenu
-object UdvalgteFilm
-UdvalgteFilm : 5
-object UdvalgteSerier
-UdvalgteSerier : 5
-object SearchFuntion
-object DropdownMenu
-object FilmLink
-object SerierLink
-object Categories
-object GenreSortedFilms
-object GenreSortedSeries
+Chill <-- StartMenu
+StartMenu <-- LogIn
+LogIn <-- Bruger
+Bruger <-- HovedMenu
 
-object Afspiller
+HovedMenu <-- SøgFunction
+HovedMenu <-- SeteMedier
+HovedMenu <-- GemteMedier
+
+SøgFunction <-- SøgeFilm
+SøgKategori <-- SøgFilmKategori
+SøgFunction <-- SøgKategori
 
 
-object FAQSenere
-FAQSenere : StartMenu
+SeteMedier <-- SeteFilm
+GemteMedier <-- GemteFilm
+SøgFunction <-- SøgeSerie
+SøgKategori <-- SøgSerieKategori
+SeteMedier <-- SeteSerie
+GemteMedier <-- GemteSerier
 
 
 
-Chill *--PreLogIn
-PreLogIn *-- StartMenu
-StartMenu *-- Login
-StartMenu *-- CreateAccount
-Chill *--PostLogIn
-PostLogIn *-- MainMenu
 
-MainMenu *-- UdvalgteFilm
-MainMenu *-- UdvalgteSerier
-MainMenu *-- SearchFuntion
-MainMenu *-- DropdownMenu
-
-DropdownMenu *-- FilmLink
-DropdownMenu *-- SerierLink
-
-FilmLink *-- Categories
-SerierLink *-- Categories
-Categories *-- GenreSortedFilms
-Categories *-- GenreSortedSeries
 
 
 @enduml
