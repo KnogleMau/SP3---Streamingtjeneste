@@ -3,9 +3,15 @@
 
 Class Chill
 Class StartMenu
-Class LogIn
+Class LogIn{
+-String username
+-String password
+}
+
 Class User
-Class MainMenu
+Class MainMenu{
+
+}
 Abstract SearchFunction
 Abstract WatchedMedia
 Abstract SavedMedia
@@ -19,25 +25,28 @@ Class WatchedSeries
 Class SavedMovies
 Class SavedSeries
 
-Chill <-- StartMenu
-StartMenu <-- LogIn
-LogIn <-- User
-User <-- MainMenu
+Chill *-- StartMenu
+StartMenu *-- LogIn
+LogIn *-- User
+User *-- MainMenu
 
-MainMenu <-- SearchFunction
-MainMenu <-- WatchedMedia
-MainMenu <-- SavedMedia
+MainMenu *-- SearchFunction
+MainMenu *-- WatchedMedia
+MainMenu *-- SavedMedia
 
-SearchFunction <-- SearchMovies
-SearchCategory <-- SearchMovieCategory
-SearchFunction <-- SearchCategory
+SearchFunction <|-- SearchMovies
+SearchCategory <|-- SearchMovieCategory
+SearchFunction <|-- SearchCategory
+SearchFunction <|-- SearchSeries
+SearchCategory <|-- SearchSeriesCategory
+
+WatchedMedia <|-- WatchedMovies
+WatchedMedia <|-- WatchedSeries
+
+SavedMedia <|-- SavedMovies
+SavedMedia <|-- SavedSeries
 
 
-WatchedMedia <-- WatchedMovies
-SavedMedia <-- SavedMovies
-SearchFunction <-- SearchSeries
-SearchCategory <-- SearchSeriesCategory
-WatchedMedia <-- WatchedSeries
-SavedMedia <-- SavedSeries
+
 
 @enduml
