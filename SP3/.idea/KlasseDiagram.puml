@@ -1,29 +1,58 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-Class Chill
-Class StartMenu
+Class Chill{
+
++void setup()
++void end()
+}
+
+Class StartMenu{
+-void load()
+-String username
+-String password
+-void loginOption()
+-void createUser()
+-void close()
+
+}
+
 Class LogIn{
 -String username
 -String password
-}
-
-Class User
-Class MainMenu{
 
 }
-Abstract SearchFunction
-Abstract WatchedMedia
-Abstract SavedMedia
-Class SearchMovies
-Class SearchSeries
-Abstract SearchCategory
-Class SearchMovieCategory
-Class SearchSeriesCategory
-Class WatchedMovies
-Class WatchedSeries
-Class SavedMovies
-Class SavedSeries
+
+Class User{
+-String username
+
+}
+
+Abstract MainMenu{
+-list movies
+-list series
+-list category
+-getMovies()
+-getSeries()
+-getSategory()
+
+
+}
+
+Class SearchFunction{
+
+}
+
+Class Media{
+-String saved
+-String watched
+}
+
+Class Movies{
+}
+
+Class Series{
+}
 
 Chill *-- StartMenu
 StartMenu *-- LogIn
@@ -31,22 +60,9 @@ LogIn *-- User
 User *-- MainMenu
 
 MainMenu *-- SearchFunction
-MainMenu *-- WatchedMedia
-MainMenu *-- SavedMedia
+MainMenu *--Media
 
-SearchFunction <|-- SearchMovies
-SearchCategory <|-- SearchMovieCategory
-SearchFunction <|-- SearchCategory
-SearchFunction <|-- SearchSeries
-SearchCategory <|-- SearchSeriesCategory
-
-WatchedMedia <|-- WatchedMovies
-WatchedMedia <|-- WatchedSeries
-
-SavedMedia <|-- SavedMovies
-SavedMedia <|-- SavedSeries
-
-
-
+SearchFunction *-- Moveis
+SearchFunction *-- Series
 
 @enduml
