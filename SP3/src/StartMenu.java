@@ -2,14 +2,14 @@ public class StartMenu {
     private String username;
     private String password;
     FileIO fileIO = new FileIO();
-    TextUI textUI = new TextUI();
+    TextUI ui = new TextUI();
 
     public void load(){
-     boolean input =  textUI.promptBinary("Vil du gerne oprette en bruger " + "Y/N!");
+     boolean input =  ui.promptBinary("Vil du gerne oprette en bruger " + "Y/N!");
         if(input == true){
             createUser();
         } else{
-            boolean input1 = textUI.promptBinary("Vil du istedet Log in? " + "Y/N!");
+            boolean input1 = ui.promptBinary("Vil du istedet Log in? " + "Y/N!");
             if(input1 == true){
                 loginOption();
             } else {
@@ -26,7 +26,7 @@ public class StartMenu {
     }
 
     public void close(){
-
+        ui.displayMsg("Tak for du valgte og komme forbi Chilli, Ses en anden gang! :D");
     }
 
 }
