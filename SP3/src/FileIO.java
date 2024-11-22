@@ -25,11 +25,10 @@ public class FileIO {
         return data;
     }
 
-    public static void saveData(List<String> items, String path, String header) {
+    public  void saveData(List<String> Users, String path) {
         try {
             FileWriter writer = new FileWriter(path);
-            writer.write(header + "\n"); //Giv csv filen en header
-            for (String s : items) {
+            for (String s : Users) {
                 writer.write(s + "\n"); //"Tess, 40000";
             }
             writer.close();
