@@ -17,11 +17,6 @@ Class StartMenu{
 
 }
 
-Class LogIn{
--String username
--String password
-
-}
 
 Class User{
 -String username
@@ -63,8 +58,8 @@ Class Series{
 }
 
 Chill *-- StartMenu
-StartMenu *-- LogIn
-LogIn *-- User
+StartMenu *-- User
+
 User *-- MainMenu
 
 MainMenu *-- SearchFunction
