@@ -8,7 +8,7 @@ public class MainMenu {
     public ArrayList<Movie> movies;
     public  ArrayList<Serie> series;
     public ArrayList<Integer> episodesInSeason;
-    public ArrayList<ArrayList<Integer>> ArrayOfArrayListSeasone;
+    public ArrayList<ArrayList<Integer>> SeasonsPlusEpisodes /*ArrayOfArrayListSeason*/;
 
     public ArrayList<String> readMovieList(String path) {
         File file = new File(path); //
@@ -86,11 +86,11 @@ public class MainMenu {
         return serieList;
     }
 
-    public ArrayList<Movie> createSeriesList(ArrayList<String> serieList) {
+    public ArrayList<Serie> createSeriesList(ArrayList<String> serieList) {
 
         series = new ArrayList<>();
         episodesInSeason = new ArrayList<Integer>();
-        ArrayOfArrayListSeasone = new ArrayList<ArrayList<Integer>>();
+        /*ArrayOfArrayListSeasone*/SeasonsPlusEpisodes = new ArrayList<ArrayList<Integer>>();
 
 
         for (int i = 0; i < serieList.size(); i++) {
@@ -115,6 +115,10 @@ public class MainMenu {
                     while(o < n)
                     {
                         episodesInSeason.add(o + 1);
+                        if(o+1 == n)
+                        {
+                            SeasonsPlusEpisodes.add(episodesInSeason);
+                        }
                         o++;
                     }
                     // koden kan fylde ArrayList for episoder en tal værdi som angiver episode nummeret.
@@ -128,28 +132,18 @@ public class MainMenu {
                     // tallet fra ArrayListen med episoder for at angive hvilket afsnit der afspilles,
                     // så kunne man måske bede om tallet fra den næste plads i ArrayListen for
                     //sæsoner(ArrayListen der indeholder ArrayLister med episoder. Altså if() next
-                    //episode == 1 get next ArrayOfArrayListSeasone.
+                    //episode == 1 get next ArrayOfArrayListSeason.
                 }
             }
-
-            int seriesNumber = Integer.parseInt(SeasonAndEpisode[0]);
-            int
-
-           //int season1 = Integer.parseInt(parameters[4].trim().split("-");
+            //int season1 = Integer.parseInt(parameters[4].trim().split("-");
            // int numberOfEpisodes = Integer.parseInt(parameters[5].trim().split(",");
-            for(int k = 0; k < episodesv1; k++) {
 
-            }
-
-            Serie s = new Serie(title, year, genre, imdbRating);
+            Serie s = new Serie(title, year, genre, imdbRating, SeasonsPlusEpisodes );
 
             ArrayList<ArrayList<Integer>> seasonsAndEpisodes = new ArrayList<ArrayList<Integer>>();
 
-
             this.series.add(s);
-
         }
-
         return series;
     }
 
