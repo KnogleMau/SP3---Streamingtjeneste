@@ -96,8 +96,10 @@ public class MainMenu {
 
         for (int i = 0; i < serieList.size(); i++) {
             String[] parameters = serieList.get(i).split(";");
-            String title = parameters[0];
-            int year = Integer.parseInt(parameters[1].trim());
+            String title = parameters[0].trim();
+         //   int year = Integer.parseInt(parameters[1].trim());
+            String seasonYearInterval = parameters[1];   //trim()
+
             List<String> genre = List.of(parameters[2].trim().split(","));
             String decimalRating = parameters[3];
             String changeToDot = decimalRating.replace(',','.');
@@ -139,7 +141,7 @@ public class MainMenu {
             //int season1 = Integer.parseInt(parameters[4].trim().split("-");
            // int numberOfEpisodes = Integer.parseInt(parameters[5].trim().split(",");
 
-            Serie s = new Serie(title, year, genre, imdbRating, SeasonsPlusEpisodes );
+            Serie s = new Serie(title, seasonYearInterval, genre, imdbRating, SeasonsPlusEpisodes );
 
             ArrayList<ArrayList<Integer>> seasonsAndEpisodes = new ArrayList<ArrayList<Integer>>();
 
@@ -148,5 +150,13 @@ public class MainMenu {
         return series;
     }
 
+    public Serie getSerieByTitle(String s) {
+        for(Serie se : series) {
+            if(se.getTitle().equalsIgnoreCase(s)){
+                return se;
+            }
+        }
+        return null;
 
+    }
 }

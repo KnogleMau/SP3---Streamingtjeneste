@@ -2,9 +2,6 @@ import java.util.List;
 
 public class Movie {
 
-
-
-
     private String title;
     private int year;
     private List<String> genre; //ArrayList
@@ -27,10 +24,6 @@ public class Movie {
         public List<String> getGenre(){
         return genre;
         }
-
-
-
-
 
 
 
