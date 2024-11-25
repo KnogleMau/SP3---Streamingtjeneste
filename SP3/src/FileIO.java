@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class FileIO {
 
-    public static ArrayList<String> readPlayerData(String path) {
+    public static ArrayList<String> readUserData(String path) {
         ArrayList<String> data = new ArrayList();
         File file = new File(path);
         try {
@@ -16,7 +16,7 @@ public class FileIO {
             scan.nextLine();//skip header
 
             while (scan.hasNextLine()) {
-                String line = scan.nextLine(); // "tess, 40000"
+                String line = scan.nextLine();
                 data.add(line);
             }
         } catch (FileNotFoundException e) {
@@ -25,11 +25,11 @@ public class FileIO {
         return data;
     }
 
-    public static void saveData(List<String> items, String path, String header) {
+    public static void saveData(List<String> Users, String path, String header) {
         try {
             FileWriter writer = new FileWriter(path);
             writer.write(header + "\n"); //Giv csv filen en header
-            for (String s : items) {
+            for (String s : Users) {
                 writer.write(s + "\n"); //"Tess, 40000";
             }
             writer.close();

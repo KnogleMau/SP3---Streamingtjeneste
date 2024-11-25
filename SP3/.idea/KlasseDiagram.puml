@@ -50,8 +50,8 @@ Class SearchFunction{
 }
 
 Class Media{
--String saved
--String watched
+-List saved
+-List watched
 }
 
 Class Movies{

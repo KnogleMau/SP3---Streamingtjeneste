@@ -1,6 +1,6 @@
 public class LogIn {
     private String username;
-    private String password
+    private String password;
 
     public LogIn(String userame, String password){
     this.username = username;
