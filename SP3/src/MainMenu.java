@@ -6,6 +6,9 @@ import java.util.Scanner;
 
 public class MainMenu {
     public ArrayList<Movie> movies;
+    public  ArrayList<Serie> series;
+    public ArrayList<Integer> episodesInSeason;
+    public ArrayList<ArrayList<Integer>> ArrayOfArrayListSeasone;
 
     public ArrayList<String> readMovieList(String path) {
         File file = new File(path); //
@@ -61,9 +64,94 @@ public class MainMenu {
                 return m;
             }
         } return null;
+    } */
+
+    public ArrayList<String> readSerieList(String path) {
+        File file = new File(path); //
+
+        ArrayList<String> serieList = new ArrayList();
+
+        try {
+            Scanner readSeries = new Scanner(file);
+            readSeries.nextLine();
+
+            while (readSeries.hasNextLine()) {
+                String line = readSeries.nextLine();
+                serieList.add(line);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File was not found");
+        }
+
+        return serieList;
     }
 
-    */
+    public ArrayList<Movie> createSeriesList(ArrayList<String> serieList) {
+
+        series = new ArrayList<>();
+        episodesInSeason = new ArrayList<Integer>();
+        ArrayOfArrayListSeasone = new ArrayList<ArrayList<Integer>>();
+
+
+        for (int i = 0; i < serieList.size(); i++) {
+            String[] parameters = serieList.get(i).split(";");
+            String title = parameters[0];
+            int year = Integer.parseInt(parameters[1].trim());
+            List<String> genre = List.of(parameters[2].trim().split(","));
+            String decimalRating = parameters[3];
+            String changeToDot = decimalRating.replace(',','.');
+            float imdbRating = Float.parseFloat(changeToDot);
+            String[] SeasonAndEpisode = parameters[4].trim().split(",");
+
+            for(int l = 0; i < SeasonAndEpisode.length; i++)
+            {
+               String[] SAndE = SeasonAndEpisode[i].split("-");
+               int season = Integer.parseInt(SAndE[0]);    //sæsonNummer
+               int episode = Integer.parseInt(SAndE[1]);    //Antal Episoder i sæson i
+                for(int m = 0; m < SeasonAndEpisode.length; i++)
+                {
+                    int n = episode;
+                    int o = 0;
+                    while(o < n)
+                    {
+                        episodesInSeason.add(o + 1);
+                        o++;
+                    }
+                    // koden kan fylde ArrayList for episoder en tal værdi som angiver episode nummeret.
+                    // Vi kan også få den til at putte denne ArrayList ind i ArrayListen med Såsoner.
+                    // Men efterfølgende så vil den ikke kunne skifte til en ny ArrayListe og putte
+                    //de næste episode nummer derind, så den næste ArrayListe kan tilføjes til den
+                    //næste plads i ArrayListen sæsonnumre indeholdende ArrayLister med episoder.
+                    //Den vil istedet føje de næste numre til den samme ArrayListe for episoder.
+                    //Så vi får en ArrayListe der kunne hedde {1, 2, 3, 4, 1, 2, 3, 1, 2}
+                    //Måske kan alle episode numrene ligge i en ArrayListe og hvis man henter/printer
+                    // tallet fra ArrayListen med episoder for at angive hvilket afsnit der afspilles,
+                    // så kunne man måske bede om tallet fra den næste plads i ArrayListen for
+                    //sæsoner(ArrayListen der indeholder ArrayLister med episoder. Altså if() next
+                    //episode == 1 get next ArrayOfArrayListSeasone.
+                }
+            }
+
+            int seriesNumber = Integer.parseInt(SeasonAndEpisode[0]);
+            int
+
+           //int season1 = Integer.parseInt(parameters[4].trim().split("-");
+           // int numberOfEpisodes = Integer.parseInt(parameters[5].trim().split(",");
+            for(int k = 0; k < episodesv1; k++) {
+
+            }
+
+            Serie s = new Serie(title, year, genre, imdbRating);
+
+            ArrayList<ArrayList<Integer>> seasonsAndEpisodes = new ArrayList<ArrayList<Integer>>();
+
+
+            this.series.add(s);
+
+        }
+
+        return series;
+    }
 
 
 }
