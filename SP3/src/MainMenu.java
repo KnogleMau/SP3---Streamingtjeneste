@@ -55,7 +55,8 @@ public class MainMenu {
         if(m.getTitle().equalsIgnoreCase(s)){
             return m;
         }
-        } return null;
+        }
+        return null;
 
     }
    /* public Movie getMovieByGenre(String s){

@@ -21,6 +21,20 @@ public class Serie {
         this.SeasonsPlusEpisodes = new ArrayList<ArrayList<Integer>>();
        // this.seasonsEpisodes = seasonsEpisodes;
     }
+    public String getTitle(){
+        return title;
+    }
+
+    public List<String> getGenre(){
+        return genre;
+    }
+
+
+    public String toString () {
+        return "Title: " + title + ", Year: " + year + ", Genres: " + genre + ", imdbRating: " +
+                imdbRating + ", Seasons and episodes: " + SeasonsPlusEpisodes + "\n";
+    }
+
 
 
 }
