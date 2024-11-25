@@ -17,11 +17,6 @@ Class StartMenu{
 
 }
 
-Class LogIn{
--String username
--String password
-
-}
 
 Class User{
 -String username
@@ -50,8 +45,8 @@ Class SearchFunction{
 }
 
 Class Media{
--List saved
--List watched
+-String saved
+-String watched
 }
 
 Class Movies{
@@ -62,15 +57,15 @@ Class Series{
 -String serie
 }
 
-Chill *-- StartMenu
-StartMenu *-- LogIn
-LogIn *-- User
-User *-- MainMenu
+Chill -- StartMenu
+StartMenu-- User
 
-MainMenu *-- SearchFunction
-Media *-- MainMenu
-User *-- Media
-SearchFunction *-- Movies
-SearchFunction *-- Series
+User -- MainMenu
+
+MainMenu-- SearchFunction
+Media -- MainMenu
+User-- Media
+SearchFunction -- Movies
+SearchFunction-- Series
 
 @enduml
