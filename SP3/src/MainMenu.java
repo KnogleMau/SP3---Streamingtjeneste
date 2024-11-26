@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -38,7 +40,9 @@ public class MainMenu {
             String title = parameters[0];
             int year = Integer.parseInt(parameters[1].trim());
             List<String> genre = List.of(parameters[2].trim().split(","));
-            float imdbRating = 2.2f; //Float.parseFloat(parameters[3].trim());
+            String decimalRating = parameters[3];
+            String changeToDot = decimalRating.replace(',', '.');
+            float imdbRating = Float.parseFloat(changeToDot);
 
             Movie m = new Movie(title, year, genre, imdbRating);
 
@@ -111,7 +115,14 @@ public ArrayList<String> readSerieList(String path){
             String title = parameters[0];
             String year = parameters[1].trim();
             List<String> genre = List.of(parameters[2].trim().split(","));
+            String decimalRating = parameters[3];
+            String changeToDot = decimalRating.replace(',', '.');
+            float imdbRating = Float.parseFloat(changeToDot);
+
+            /*
             float imdbRating = 2.2f; //Float.parseFloat(parameters[3].trim());
+
+             */
             String seasonsEpisodes = parameters[4].trim();
             Serie s = new Serie(title, year, genre, imdbRating, seasonsEpisodes);
 
