@@ -1,14 +1,13 @@
-import java.util.HashMap;
 import java.util.List;
 
 public class Serie {
     String title;
-    int year;
+    String year;
     List<String> genre;
     float imdbRating;
-    HashMap<Integer,Integer> seasonsEpisodes;
+    String seasonsEpisodes;
 
-    public Serie(String title, int year, List<String> genre, float imdbRating, HashMap<Integer, Integer> seasonsEpisodes ){
+    public Serie(String title, String year, List<String> genre, float imdbRating, String seasonsEpisodes ){
         this.title = title;
         this.year = year;
         this.genre = genre;
@@ -16,5 +15,26 @@ public class Serie {
         this.seasonsEpisodes = seasonsEpisodes;
     }
 
+    public String getTitle() {
+        return title;
+    }
 
+    public String getYear() {
+        return year;
+    }
+
+    public List<String> getGenre() {
+        return genre;
+    }
+
+    public float getImdbRating() {
+        return imdbRating;
+    }
+
+    public String getSeasonsEpisodes() {
+        return seasonsEpisodes;
+    }
+    public String toString () {
+        return "Title: " + title + ", Year: " + year + ", Genres: " + genre + ", imdbRating: " + imdbRating + " Episoder: " + seasonsEpisodes + "\n";
+    }
 }

@@ -18,6 +18,16 @@ public class TextUI {
         }
         return promptBinary(msg);
     }
+    public boolean promptBinary2(String msg){
+        String input = promptText(msg);
+        if(input.equalsIgnoreCase("Series")){
+            return true;
+        }
+        else if(input.equalsIgnoreCase("Movies")){
+            return false;
+        }
+        return promptBinary(msg);
+    }
 
     public int promptNumeric(String msg) {
         System.out.println(msg);              // Stille brugeren et spørgsmål
