@@ -1,11 +1,11 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class MainMenu {
+    TextUI ui = new TextUI();
     public ArrayList<Movie> movies;
     public ArrayList<Serie> series;
 
@@ -57,15 +57,33 @@ public class MainMenu {
         } return null;
 
     }
-   /* public Movie getMovieByGenre(String s){
-        for(Movie m : movies){
-            if(m.getGenre().equalsIgnoreCase(s)){
-                return m;
+   public Movie getMovieByGenre(String s){
+       String soeg = s;
+       for(int i = 0; i < movies.size(); i++)
+       {
+           if(((Movie) movies.get(i)).getGenre().contains(soeg))
+           {
+               System.out.println(movies.get(i));
+
+           }
+       }
+       return null;
+   }
+
+    public Serie getSerieByGenre(String s){
+        String soeg = s;
+        for(int i = 0; i < series.size(); i++)
+        {
+            if(((Serie)series.get(i)).getGenre().contains(soeg))
+            {
+                System.out.println(series.get(i));
+
             }
-        } return null;
+        }
+        return null;
     }
 
-    */
+
 public ArrayList<String> readSerieList(String path){
     File file = new File(path); //
 

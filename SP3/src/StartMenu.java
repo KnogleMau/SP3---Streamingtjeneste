@@ -13,10 +13,10 @@ public class StartMenu {
     TextUI ui = new TextUI();
 
     public void load() throws FileNotFoundException {
-     boolean input =  ui.promptBinary("Vil du gerne oprette en bruger " + "Y/N!");
-        if(input == true){
+     boolean input9 =  ui.promptBinary("Vil du gerne oprette en bruger " + "Y/N!");
+        if(input9 == true){
             createUser();
-            if(input==true){
+            if(input9==true){
                 loginOption();
             }
         } else{
@@ -66,8 +66,10 @@ public class StartMenu {
                 if (credentials.length>0 && credentials[0].equals(username) && credentials[1].equals(password)){
 
                     System.out.println("login vellykket");
-
-                } else{
+                    run();
+                    close();
+                    return true;
+                } else {
                     System.out.println("Login fejlet");
                     loginOption();
                 }
@@ -87,7 +89,7 @@ public class StartMenu {
         List<String> users = new ArrayList<>();
         String brugernavn = ui.promptText("indtast brugernavn");
         if(isUserExisting(brugernavn)){
-            System.out.println("brugeren eksostere allerede");
+            System.out.println("brugeren eksistere allerede");
             createUser();
             return;
 
@@ -117,4 +119,44 @@ public class StartMenu {
         ui.displayMsg("Tak for du valgte og komme forbi Chilli, Ses en anden gang! :D");
         }
 
+
+    public void run() {
+        MainMenu mainMenu = new MainMenu();
+        ArrayList<String> input = mainMenu.readMovieList("Data/film.txt");
+        mainMenu.createMovieList(input);
+
+        ArrayList<String>input2 = mainMenu.readSerieList("Data/serier.txt");
+        mainMenu.createSerieList(input2);
+
+        boolean text1 = ui.promptBinary2("Hvad vil du se? Movies/Series");
+        if(text1 == true){
+            boolean text2 = ui.promptBinary3("Vil du søge efter genre? Genre/Title");
+            if(text1 == true && text2 == true){
+                Movie m = mainMenu.getMovieByGenre(ui.promptText("Hvilken Genre vil du søge på?"));
+            } else {
+                Movie m = mainMenu.getMovieByTitle(ui.promptText("What movie do you wish to find?"));
+                System.out.println(m); // Skal kun tilføjes hvis vi søger efter getMovieByTitle
+            }
+        } else{
+           boolean text3 = ui.promptBinary3("Hvad vil du søge efter? Genre/Title");
+           if(text3 == true){
+               Serie s = mainMenu.getSerieByGenre(ui.promptText("Hvilken Genre vil du søge på?"));
+           } else {
+               Serie s = mainMenu.getSerieByTitle(ui.promptText("What series do you wish to watch="));
+               System.out.println(s);
+           }
+        }
+
+        //Movie m = mainMenu.getMovieByGenre(ui.promptText("Hvilken Genre vil du søge på?"));
+        //Movie m = mainMenu.getMovieByTitle(ui.promptText("What movie do you wish to find?"));
+        //System.out.println(m); // Skal kun tilføjes hvis vi søger efter getMovieByTitle
+
+
+
+
+        // Serie s = mainMenu.getSerieByTitle(ui.promptText("What series do you wish to watch="));
+        //System.out.println(s);
+
     }
+
+}

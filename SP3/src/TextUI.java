@@ -4,8 +4,9 @@ import java.util.Scanner;
 public class TextUI {
     private Scanner scan = new Scanner(System.in);
 
-    public void displayMsg(String msg){
+    public String displayMsg(String msg){
         System.out.println(msg);
+        return msg;
     }
 
     public boolean promptBinary(String msg){
@@ -20,10 +21,10 @@ public class TextUI {
     }
     public boolean promptBinary2(String msg){
         String input = promptText(msg);
-        if(input.equalsIgnoreCase("Series")){
+        if(input.equalsIgnoreCase("Movies")){
             return true;
         }
-        else if(input.equalsIgnoreCase("Movies")){
+        else if(input.equalsIgnoreCase("Series")){
             return false;
         }
         return promptBinary(msg);
