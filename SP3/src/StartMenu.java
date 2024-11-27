@@ -125,10 +125,10 @@ public class StartMenu {
 
     public void run() {
         MainMenu mainMenu = new MainMenu();
-        ArrayList<String> input = mainMenu.readMovieList("Data/film.txt");
+        ArrayList<String> input = mainMenu.readMovieList();
         mainMenu.createMovieList(input);
 
-        ArrayList<String>input2 = mainMenu.readSerieList("Data/serier.txt");
+        ArrayList<String>input2 = mainMenu.readSerieList();
         mainMenu.createSerieList(input2);
 
         boolean text1 = ui.promptBinary("Hvad vil du se? Movies/Series", "Movies", "Series");

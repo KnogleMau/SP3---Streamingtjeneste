@@ -1,17 +1,22 @@
-import org.w3c.dom.ls.LSOutput;
-
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class MainMenu {
     TextUI ui = new TextUI();
+    FileIO io = new FileIO();
     public ArrayList<Movie> movies;
     public ArrayList<Serie> series;
 
-    public ArrayList<String> readMovieList(String path) {
+
+    public ArrayList<String> readMovieList(){
+        io.readData("Data/film.txt");
+        return null;
+    }
+    public ArrayList<String> readSerieList(){
+        io.readData("Data/serier.txt");
+        return null;
+    }
+   /* public ArrayList<String> readMovieList(String path) {
         File file = new File(path); //
 
         ArrayList<String> movieList = new ArrayList();
@@ -30,7 +35,7 @@ public class MainMenu {
 
         return movieList;
     }
-
+*/
 
     public ArrayList<Movie> createMovieList(ArrayList<String> movieList) {
 
@@ -87,7 +92,7 @@ public class MainMenu {
         return null;
     }
 
-
+/*
 public ArrayList<String> readSerieList(String path){
     File file = new File(path); //
 
@@ -107,6 +112,8 @@ public ArrayList<String> readSerieList(String path){
 
     return serieList;
 }
+
+ */
     public ArrayList<Serie> createSerieList(ArrayList<String> serieList) {
 
         series = new ArrayList<>();
