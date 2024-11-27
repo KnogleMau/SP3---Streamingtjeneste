@@ -9,12 +9,9 @@ public class MainMenu {
 
 
     public ArrayList<String> readMovieList(){
-        io.readData("Data/film.txt");
-        return null;
-    }
-    public ArrayList<String> readSerieList(){
-        io.readData("Data/serier.txt");
-        return null;
+        ArrayList<String> movieList = io.readData("Data/film.txt");
+
+        return movieList;
     }
    /* public ArrayList<String> readMovieList(String path) {
         File file = new File(path); //
@@ -60,24 +57,24 @@ public class MainMenu {
 
     public Movie getMovieByTitle(String s) {
         for(Movie m : movies) {
-        if(m.getTitle().equalsIgnoreCase(s)){
-            return m;
-        }
+            if(m.getTitle().equalsIgnoreCase(s)){
+                return m;
+            }
         } return null;
 
     }
-   public Movie getMovieByGenre(String s){
-       String soeg = s;
-       for(int i = 0; i < movies.size(); i++)
-       {
-           if(((Movie) movies.get(i)).getGenre().contains(soeg))
-           {
-               System.out.println(movies.get(i));
+    public Movie getMovieByGenre(String s){
+        String soeg = s;
+        for(int i = 0; i < movies.size(); i++)
+        {
+            if(((Movie) movies.get(i)).getGenre().contains(soeg))
+            {
+                System.out.println(movies.get(i));
 
-           }
-       }
-       return null;
-   }
+            }
+        }
+        return null;
+    }
 
     public Serie getSerieByGenre(String s){
         String soeg = s;
@@ -91,27 +88,31 @@ public class MainMenu {
         }
         return null;
     }
+    public ArrayList<String> readSerieList(){
+        ArrayList<String> serieList = io.readData("Data/serier.txt");
 
-/*
-public ArrayList<String> readSerieList(String path){
-    File file = new File(path); //
-
-    ArrayList<String> serieList = new ArrayList();
-
-    try {
-        Scanner readSeries = new Scanner(file);
-        readSeries.nextLine();
-
-        while (readSeries.hasNextLine()) {
-            String line = readSeries.nextLine();
-            serieList.add(line);
-        }
-    } catch (FileNotFoundException e) {
-        System.out.println("File was not found");
+        return serieList;
     }
+/*
+    public ArrayList<String> readSerieList(String path){
+        File file = new File(path); //
 
-    return serieList;
-}
+        ArrayList<String> serieList = new ArrayList();
+
+        try {
+            Scanner readSeries = new Scanner(file);
+            readSeries.nextLine();
+
+            while (readSeries.hasNextLine()) {
+                String line = readSeries.nextLine();
+                serieList.add(line);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File was not found");
+        }
+
+        return serieList;
+    }
 
  */
     public ArrayList<Serie> createSerieList(ArrayList<String> serieList) {

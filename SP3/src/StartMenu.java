@@ -13,7 +13,7 @@ public class StartMenu {
     TextUI ui = new TextUI();
 
     public void load() {
-     boolean input9 =  ui.promptBinary("Vil du gerne oprette en bruger? Y/N ", "Y", "N");
+        boolean input9 =  ui.promptBinary("Vil du gerne oprette en bruger? Y/N ", "Y", "N");
         if(input9 == true){
             createUser();
             if(input9==true){
@@ -120,7 +120,7 @@ public class StartMenu {
 
     public void close(){
         ui.displayMsg("Tak for du valgte og komme forbi Chilli, Ses en anden gang! :D");
-        }
+    }
 
 
     public void run() {
@@ -141,13 +141,13 @@ public class StartMenu {
                 System.out.println(m); // Skal kun tilføjes hvis vi søger efter getMovieByTitle
             }
         } else{
-           boolean text3 = ui.promptBinary("Hvad vil du søge efter? Genre/Title", "Genre", "Title");
-           if(text3 == true){
-               Serie s = mainMenu.getSerieByGenre(ui.promptText("Hvilken Genre vil du søge på?"));
-           } else {
-               Serie s = mainMenu.getSerieByTitle(ui.promptText("What series do you wish to watch="));
-               System.out.println(s);
-           }
+            boolean text3 = ui.promptBinary("Hvad vil du søge efter? Genre/Title", "Genre", "Title");
+            if(text3 == true){
+                Serie s = mainMenu.getSerieByGenre(ui.promptText("Hvilken Genre vil du søge på?"));
+            } else {
+                Serie s = mainMenu.getSerieByTitle(ui.promptText("What series do you wish to watch="));
+                System.out.println(s);
+            }
         }
 
     }
