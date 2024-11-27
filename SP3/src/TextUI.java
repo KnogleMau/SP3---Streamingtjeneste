@@ -9,17 +9,17 @@ public class TextUI {
         return msg;
     }
 
-    public boolean promptBinary(String msg){
+    public boolean promptBinary(String msg, String responseForTrue, String responseForFalse){
         String input = promptText(msg);
-        if(input.equalsIgnoreCase("Y")){
+        if(input.equalsIgnoreCase(responseForTrue)){
             return true;
         }
-        else if(input.equalsIgnoreCase("N")){
+        else if(input.equalsIgnoreCase(responseForFalse)){
             return false;
         }
-        return promptBinary(msg);
+        return promptBinary(msg, responseForTrue, responseForFalse);
     }
-    public boolean promptBinary2(String msg){
+    /*public boolean promptBinary2(String msg){
         String input = promptText(msg);
         if(input.equalsIgnoreCase("Movies")){
             return true;
@@ -39,7 +39,7 @@ public class TextUI {
         }
         return promptBinary(msg);
     }
-
+*/
     public int promptNumeric(String msg) {
         System.out.println(msg);              // Stille brugeren et spørgsmål
         String input = scan.nextLine();

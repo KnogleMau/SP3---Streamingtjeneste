@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
         TextUI ui = new TextUI();
         Chilli chilli = new Chilli();
         chilli.setup();

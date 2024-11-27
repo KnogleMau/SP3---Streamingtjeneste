@@ -12,15 +12,15 @@ public class StartMenu {
     FileIO fileIO = new FileIO();
     TextUI ui = new TextUI();
 
-    public void load() throws FileNotFoundException {
-     boolean input9 =  ui.promptBinary("Vil du gerne oprette en bruger " + "Y/N!");
+    public void load() {
+     boolean input9 =  ui.promptBinary("Vil du gerne oprette en bruger? Y/N ", "Y", "N");
         if(input9 == true){
             createUser();
             if(input9==true){
                 loginOption();
             }
         } else{
-            boolean input1 = ui.promptBinary("Vil du istedet Log in? " + "Y/N!");
+            boolean input1 = ui.promptBinary("Vil du istedet Log in? Y/N ", "Y", "N");
             if(input1 == true){
                 loginOption();
             } else {
@@ -28,7 +28,7 @@ public class StartMenu {
             }
         }
     }
-    public boolean isUserExisting(String username) throws FileNotFoundException {
+    public boolean isUserExisting(String username)  {
         File file = new File("Data/Users.csv");
 
         if (!file.exists()) {
@@ -46,6 +46,8 @@ public class StartMenu {
                     return true;
                 }
             }
+        }catch(FileNotFoundException e){
+            System.out.println(e.getMessage());
         }
 
         return false;
@@ -86,7 +88,7 @@ public class StartMenu {
 
     }
 
-    public  void createUser() throws FileNotFoundException {
+    public  void createUser() {
         List<String> users = new ArrayList<>();
         String brugernavn = ui.promptText("indtast brugernavn");
         if(isUserExisting(brugernavn)){
@@ -106,11 +108,11 @@ public class StartMenu {
             writer.write(brugernavn + "," + password + "\n");
             System.out.println("Bruger oprettet");
 
-        } catch (IOException e){
+        } catch (FileNotFoundException e){
 
             System.out.println("file opstod under oprettelse " + e.getMessage());
 
-        }
+        }catch (IOException e){}
 
 
     }
@@ -129,9 +131,9 @@ public class StartMenu {
         ArrayList<String>input2 = mainMenu.readSerieList("Data/serier.txt");
         mainMenu.createSerieList(input2);
 
-        boolean text1 = ui.promptBinary2("Hvad vil du se? Movies/Series");
+        boolean text1 = ui.promptBinary("Hvad vil du se? Movies/Series", "Movies", "Series");
         if(text1 == true){
-            boolean text2 = ui.promptBinary3("Vil du søge efter genre? Genre/Title");
+            boolean text2 = ui.promptBinary("Vil du søge efter genre? Genre/Title","Genre", "Title");
             if(text1 == true && text2 == true){
                 Movie m = mainMenu.getMovieByGenre(ui.promptText("Hvilken Genre vil du søge på?"));
             } else {
@@ -139,7 +141,7 @@ public class StartMenu {
                 System.out.println(m); // Skal kun tilføjes hvis vi søger efter getMovieByTitle
             }
         } else{
-           boolean text3 = ui.promptBinary3("Hvad vil du søge efter? Genre/Title");
+           boolean text3 = ui.promptBinary("Hvad vil du søge efter? Genre/Title", "Genre", "Title");
            if(text3 == true){
                Serie s = mainMenu.getSerieByGenre(ui.promptText("Hvilken Genre vil du søge på?"));
            } else {

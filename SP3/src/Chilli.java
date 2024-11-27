@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Chilli {
 
-    public void setup() throws FileNotFoundException {
+    public void setup() {
         StartMenu startMenu = new StartMenu();
         startMenu.load();
         //startMenu.run();
