@@ -69,12 +69,13 @@ public class StartMenu {
                     run();
                     close();
                     return true;
-                } else {
-                    System.out.println("Login fejlet");
-                    loginOption();
                 }
 
+
             }
+            System.out.println("Login fejlet");
+            loginOption();
+
         } catch (FileNotFoundException e) {
             System.out.println("Filen blev ikke fundet: " + e.getMessage());
         } catch (Exception e) {
