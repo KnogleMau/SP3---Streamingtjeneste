@@ -147,16 +147,6 @@ public class StartMenu {
            }
         }
 
-        //Movie m = mainMenu.getMovieByGenre(ui.promptText("Hvilken Genre vil du søge på?"));
-        //Movie m = mainMenu.getMovieByTitle(ui.promptText("What movie do you wish to find?"));
-        //System.out.println(m); // Skal kun tilføjes hvis vi søger efter getMovieByTitle
-
-
-
-
-        // Serie s = mainMenu.getSerieByTitle(ui.promptText("What series do you wish to watch="));
-        //System.out.println(s);
-
     }
 
 }
