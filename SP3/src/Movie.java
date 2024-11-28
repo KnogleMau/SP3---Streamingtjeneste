@@ -1,42 +1,29 @@
 import java.util.List;
 
-public class Movie {
+public class Movie extends Media {
 
+    private int year;    // Warning may be final
 
+    public Movie(String title, int year, List<String> genre,float imdbRating)
+    {
 
-
-    private String title;
-    private int year;
-    private List<String> genre; //ArrayList
-    private float imdbRating;
-
-
-
-
-    public Movie(String title, int year, List<String> genre,float imdbRating){
-            this.title = title;
-            this.year = year;
-            this.genre = genre;
-            this.imdbRating = imdbRating;
-
-        }
-        public String getTitle(){
+        super(title, genre, imdbRating);
+        this.year = year;
+    }
+    @Override
+    public String getTitle(){
         return title;
-        }
+    }
 
-        public List<String> getGenre(){
+    @Override
+    public List<String> getGenre(){
         return genre;
-        }
+    }
 
-
-
-
-
-
-
-        public String toString () {
-           return "Title: " + title + ", Year: " + year + ", Genres: " + genre + ", imdbRating: " + imdbRating + "\n";
+    @Override
+    public String toString () {
+        return "Title: " + title + ", Year: " + year + ", Genres: " + genre + ", imdbRating: " + imdbRating + "\n";
     }
 
 
-    }// ends class
+}// ends class
