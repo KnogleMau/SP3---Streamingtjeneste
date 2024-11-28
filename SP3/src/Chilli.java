@@ -6,8 +6,8 @@ public class Chilli {
     public void setup() {
         StartMenu startMenu = new StartMenu();
         startMenu.load();
-        //startMenu.run();
-
+        startMenu.run();
+        startMenu.close();
 
     }
 
