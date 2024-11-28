@@ -50,8 +50,6 @@ public class LogIn {
                 if (credentials.length>0 && credentials[0].equals(username) && credentials[1].equals(password)){
 
                     System.out.println("login vellykket");
-                    run();
-                    close();
                     return true;
                 }
 
