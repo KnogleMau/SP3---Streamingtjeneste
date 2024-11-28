@@ -9,63 +9,71 @@ Class Chill{
 
 Class StartMenu{
 -void load()
+-void run()
+-void close()
+}
+
+
+Class LogIn{
 -String username
 -String password
 -void loginOption()
 -void createUser()
--void close()
 
 }
 
-
-Class User{
--String username
-
-}
-
-Abstract MainMenu{
+Class MainMenu{
 -list movies
 -list series
--list category
-#getMovies()
-#getSeries()
-#getCategory()
++getTitle()
++getGenre()
+-String saved//
+-String watched//
 
 
 }
 
-Class SearchFunction{
--String movie
--String serie
--String category
-#getMovies()
-#getSeries()
-#getCategory()
 
-}
+Abstract Media{
+-String title
+-String year
+-List genre
+-Float imdbRating
 
-Class Media{
--String saved
--String watched
+toString()
+getTitle()
+getGenre()
 }
 
 Class Movies{
--String movie
+-String title
+-String year
+-List genre
+-Float imdbRating
++getTitle()
++getGenre()
++toString()
 }
 
 Class Series{
--String serie
+-String title
+-String year
+-List genre
+-Float imdbRating
+-String seasonEpisodes
++getTitle()
++getSeries()
++toString()
+
 }
 
 Chill -- StartMenu
-StartMenu-- User
+StartMenu-- LogIn
 
-User -- MainMenu
+LogIn -- MainMenu
 
-MainMenu-- SearchFunction
-Media -- MainMenu
-User-- Media
-SearchFunction -- Movies
-SearchFunction-- Series
+MainMenu-- Media
+Media*-- Movies
+Media*-- Series
 
 @enduml
