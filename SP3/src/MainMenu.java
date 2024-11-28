@@ -9,7 +9,7 @@ public class MainMenu {
 
 
     public ArrayList<String> readMovieList(){
-        ArrayList<String> movieList = io.readData("Data/film.txt");
+        ArrayList<String> movieList = io.readData("SP3/Data/film.txt");
 
         return movieList;
     }
@@ -89,7 +89,7 @@ public class MainMenu {
         return null;
     }
     public ArrayList<String> readSerieList(){
-        ArrayList<String> serieList = io.readData("Data/serier.txt");
+        ArrayList<String> serieList = io.readData("SP3/Data/serier.txt");
 
         return serieList;
     }

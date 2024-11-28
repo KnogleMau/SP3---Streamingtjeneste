@@ -29,7 +29,7 @@ public class StartMenu {
         }
     }
     public boolean isUserExisting(String username)  {
-        File file = new File("Data/Users.csv");
+        File file = new File("SP3/Data/Users.csv");
 
         if (!file.exists()) {
             System.out.println("Filen findes ikke endnu. Ingen brugere er oprettet.");
@@ -59,7 +59,7 @@ public class StartMenu {
         String username = ui.promptText("Indtast brugernavn:");
         String password = ui.promptText("Indtast password:");
 
-        File file = new File("Data/Users.csv");
+        File file = new File("SP3/Data/Users.csv");
 
         try (Scanner scan = new Scanner(file)) {
             while (scan.hasNextLine()) {
